@@ -1,0 +1,26 @@
+command line tic tac toe proposal
+
+Tic Tac Toe Command line game will consist of three classes a board class, a player class, and a game master class.
+
+The game board class:
+    -will contain an empty 3x3 matrix initally
+
+The player class:
+    -will add values to the game board matrix and specify which index to add value to
+    -will use command line to specify where to add value
+    -will have parameter titled symbol which will set whether the player is "X" or "O"
+    -within the class, I want to have a method that will ask the user for two numbers that will make up the coordinates for where the player wants to put down their symbol on the matrix
+
+The game master class:
+    -will check who wins the game
+    -within the class, there will be a if statement stating that if: three in a row horizontally, or three in a row vertically, or three in a row diagonally, are are equal to one symbol, them return the statement "congratulations! the player with "+the symbol+" has won this game of tic tac toe!"
+    -there will be a reset method, which will clear the game board and players...
+
+in the main code, I plan to use the console to ask user to enter the name of player one and then the input as the name of a new instance from the player class, repeat this will player two.
+    rl.question('Player one, what is your name? ', (answer) => {
+      // TODO: Log the answer in a database
+      console.log(`Thank you for your valuable feedback: ${answer}`);
+      rl.close(); }
+    var answer = new player();
+
+
