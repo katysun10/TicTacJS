@@ -4,6 +4,9 @@ var Player = require("./player").Player;
 var readline = require('readline'),
 rl = readline.createInterface(process.stdin, process.stdout);
 
+var playerOne = new Player();
+var playerTwo = new Player();
+
 function getPlayerInfo(){
 	rl.question("Player 1, what is your name? ", function(name1){
 		playerOne.name = name1;
