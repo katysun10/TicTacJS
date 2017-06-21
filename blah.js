@@ -1,39 +1,24 @@
-
 Player = function(){
 	this.name = "";
 	this.symbol = "";
 }
 
-var playerOne = new Player();
-var playerTwo = new Player();
-
 var readline = require('readline'),
 rl = readline.createInterface(process.stdin, process.stdout);
 
-rl.question("Player 1, what is your name? ", function(name1){
-	playerOne.name = name1;
+var numPlayers = 2;
+var count;
 
-	rl.question("Player 2, what is your name? ", function(name2){
-		playerTwo.name = name2;
+/*rl.question("How many players are there?\n**Note: for TicTacToe there can only be 2** ", 
+	function(playerNum){
+		numPlayers = playerNum;
+		console.log(numPlayers);
+		rl.pause();
+});*/
 
-		rl.question("Enter a symbol to use as your game piece "+playerOne.name+": ", function(symbol1){
-			playerOne.symbol = symbol1;
+rl.setPrompt("Player enter your name: ");
 
-			rl.setPrompt("Enter a symbol to use as your game piece "+playerTwo.name+": ");
-			rl.prompt();
 
-			rl.on('line', function(symbol2){
-				if(symbol2 === symbol1){
-					console.log("Player one and two cannot have the same symbol "+playerTwo.name+"!")
-					rl.prompt();
-				}
-				else{
-					playerTwo.symbol = symbol2;
-					rl.close();
-					console.log(playerOne);
-					console.log(playerTwo);
-				}
-			});
-		});
-	});
+rl.on('line', function(name){
+	rl.prompt();
 });
