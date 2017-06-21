@@ -1,9 +1,9 @@
 var GameBoard = require("./gameboard").GameBoard;
 var Player = require("./player").Player;
 
-function GameMaster(){
+function GameMaster(player1Obj, player2Obj, gameboardObj){
 	this.checkWin = function(){
-		//if()
+
 	};
 	this.reset = function(){
 
@@ -11,6 +11,6 @@ function GameMaster(){
 }
 
 
-var test = new GameBoard;
+var test = new GameBoard();
 
 console.log(test)
