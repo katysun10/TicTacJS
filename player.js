@@ -4,7 +4,4 @@ function Player(){
 	this.symbol = "";
 }
 
-var playerOne = new Player();
-var playerTwo = new Player();
-
 exports.Player = Player;

@@ -1,24 +1,24 @@
-Player = function(){
-	this.name = "";
-	this.symbol = "";
+// const readline = require('readline');
+// const rl = readline.createInterface({
+// 	input: process.stdin,
+// 	output: process.stdout
+// });
+
+// rl.on('line', function(line){
+// 	console.log("it worked!",line);
+// 	rl.close();
+// });
+
+
+function test(counter, counterLimit){
+	if(counter === counterLimit){
+		return "done";
+	}
+	console.log("the counter is at",counter)
+	counter++;
+	return test(counter,counterLimit);
 }
 
-var readline = require('readline'),
-rl = readline.createInterface(process.stdin, process.stdout);
+var result = test(3,6);
 
-var numPlayers = 2;
-var count;
-
-/*rl.question("How many players are there?\n**Note: for TicTacToe there can only be 2** ", 
-	function(playerNum){
-		numPlayers = playerNum;
-		console.log(numPlayers);
-		rl.pause();
-});*/
-
-rl.setPrompt("Player enter your name: ");
-
-
-rl.on('line', function(name){
-	rl.prompt();
-});
+console.log(result);
