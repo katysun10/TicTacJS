@@ -1,32 +1,32 @@
 var GameBoard = require("./gameboard").GameBoard;
 var Player = require("./player").Player;
-var NUM_PLAYERS = require("./constants").NUM_PLAYERS;
-var STARTING_PLAYER = require("./constants").STARTING_PLAYER;
+var Constants = require("./constants").Constants;
+var prompt = require('prompt-sync')();
 
-var readline = require('readline'),
-rl = readline.createInterface(process.stdin, process.stdout);
-
-function enterCommandsLoop(){
-    rl.question("**type 'exit' to close**\nEnter a command: ", function (answer) {
-        if (answer === "exit"){ //we need some base case, for recursion
-            return rl.close();
-        } //closing RL and returning from function.
-        console.log("That command is not recognized:", answer);
-        enterCommandsLoop(); //Calling this function again to ask new question
-    });
-};
-
-function getNameAndCommands(numPlayers, startingPlayer){
-	rl.question("Player "+startingPlayer+", what is your name? ", function(answer){
-		if(startingPlayer === numPlayers){
-			console.log("Player "+startingPlayer+" "+answer+", nice to meet you!");
-			console.log("The max number of players has been reached");
-			enterCommandsLoop();
-		}
-		console.log("Player "+startingPlayer+" "+answer+", nice to meet you!");
-		startingPlayer++;
-		getNameAndCommands(numPlayers, startingPlayer);
-	});
+function initializePlayers (numPlayers) {
+    var players = [];
+    for (var i = 0; i < numPlayers; i++) {
+        var queryStr = "Player " + (i + 1) + ", what is your name? ";
+        var name = prompt(queryStr);
+        players[i] = new Player(name);
+    }
+    return players;
 }
 
-getNameAndCommands(NUM_PLAYERS, STARTING_PLAYER);
+function initializeGameboard () {
+    
+}
+
+function startGame () {
+    var command = "";
+    while (command !== "exit") {
+        command = prompt("Show time! ");
+    }
+}
+
+var players = initializePlayers(Constants.NUM_PLAYERS);
+startGame();
+
+// Forcefully exiting the process as there is a bug in the "prompt-sync" library that doesn't
+// provide the user any means of closing the i/o stream
+process.exit();
