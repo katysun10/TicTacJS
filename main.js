@@ -4,12 +4,26 @@ var Player = require("./player").Player;
 var Constants = require("./constants").Constants;
 var prompt = require('prompt-sync')();
 
-function initializePlayers (numPlayers) {
+function initializePlayers(numPlayers) {
     var players = [];
-    for (var i = 0; i < numPlayers; i++) {
-        var queryStr = "Player " + (i + 1) + ", what is your name? ";
-        var name = prompt(queryStr);
-        players[i] = new Player(name);
+    var queryStrName;
+    var queryStrSym;
+    var symbolHistory = {};
+    var name;
+    var symbol;
+
+    for (var i=0; i<numPlayers; i++){
+        queryStrName = "Player "+(i + 1)+", enter your name: "
+        name = prompt(queryStrName);
+
+        queryStrSym = name+" enter a symbol: "
+        symbol = prompt(queryStrSym);
+        while(symbolHistory[symbol] !== undefined){
+        	console.log("This symbol is already taken, try again");
+        	symbol = prompt(queryStrSym);
+        }
+        symbolHistory[symbol] = true;
+        players[i] = new Player(name, symbol);
     }
     return players;
 }
@@ -26,7 +40,7 @@ function startGame () {
 }
 
 var players = initializePlayers(Constants.NUM_PLAYERS);
-startGame();
+console.log(players);
 
 // Forcefully exiting the process as there is a bug in the "prompt-sync" library that doesn't
 // provide the user any means of closing the i/o stream

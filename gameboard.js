@@ -13,6 +13,10 @@ function GameBoard(){
         	tempArr = [];
     	}
 	}
+    this.printBoard = function(){}; //wip
+    this.placePiece = function(playerPieces){
+
+    };
 }
 
 exports.GameBoard = GameBoard;

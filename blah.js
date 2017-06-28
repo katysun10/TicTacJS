@@ -1,24 +1,21 @@
-// const readline = require('readline');
-// const rl = readline.createInterface({
-// 	input: process.stdin,
-// 	output: process.stdout
-// });
 
-// rl.on('line', function(line){
-// 	console.log("it worked!",line);
-// 	rl.close();
-// });
+var prompt = require("prompt-sync")();
 
-
-function test(counter, counterLimit){
-	if(counter === counterLimit){
-		return "done";
+function getSymbol(){
+	var symbolHistory = {
+		calory: true
+	};
+	var queryStrSymb = "enter a symbol: "
+	var symbol = prompt(queryStrSymb);	
+	while(symbolHistory[symbol] !== undefined){
+		console.log("That symbol is already taken, try again: ");
+		symbol = prompt(queryStrSymb);
+		symbolHistory.symbol;
 	}
-	console.log("the counter is at",counter)
-	counter++;
-	return test(counter,counterLimit);
+	symbolHistory[symbol] = true;
+	console.log(symbolHistory);
+	process.exit();
 }
 
-var result = test(3,6);
 
-console.log(result);
+getSymbol();

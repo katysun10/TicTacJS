@@ -1,7 +1,7 @@
 
-function Player (name) {
+function Player (name, symbol) {
 	this.name = name;
-	this.symbol = "";
+	this.symbol = symbol;
 }
 
 exports.Player = Player;
