@@ -8,7 +8,7 @@ function getSymbol(){
 	var queryStrSymb = "enter a symbol: "
 	var symbol = prompt(queryStrSymb);	
 	while(symbolHistory[symbol] !== undefined){
-		console.log("That symbol is already taken, try again: ");
+		console.log("That symbol is already taken, try again");
 		symbol = prompt(queryStrSymb);
 		symbolHistory.symbol;
 	}
