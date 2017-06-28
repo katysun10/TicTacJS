@@ -1,5 +1,11 @@
-const NUM_PLAYERS = 2;
-const STARTING_PLAYER =1;
+exports.Constants = Object.freeze({
+    /*
+     * The number of players
+     */
+    NUM_PLAYERS: 2,
 
-exports.NUM_PLAYERS = NUM_PLAYERS;
-exports.STARTING_PLAYER = STARTING_PLAYER;
+    /*
+     * The offset with which to start referring to players as
+     */
+    STARTING_PLAYER: 1
+});
