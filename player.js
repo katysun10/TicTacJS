@@ -1,6 +1,6 @@
 
-function Player(){
-	this.name = "";
+function Player (name) {
+	this.name = name;
 	this.symbol = "";
 }
 
